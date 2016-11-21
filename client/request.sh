@@ -19,7 +19,9 @@ load_config() {
 }
 
 change_proxy() {
-    $DIR/pppoe.sh
+    pppoe-stop
+    pppoe-start
+    pppoe-status
 }
 
 send_request() {
