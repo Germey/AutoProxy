@@ -1,0 +1,1 @@
+*/3 * * * * /var/AutoProxy/client/request.sh http://127.0.0.1 >> /root/ddns/cloudxns.log
