@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 if [ "$#" != 1 ];then
 	echo "param error."
 	exit 0
@@ -19,9 +21,7 @@ load_config() {
 }
 
 change_proxy() {
-    pppoe-stop
-    pppoe-start
-    pppoe-status
+    . $DIR/pppoe.sh
 }
 
 send_request() {
