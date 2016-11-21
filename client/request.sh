@@ -23,9 +23,8 @@ change_proxy() {
 }
 
 send_request() {
-    echo $KEY;
-    echo $SERVER;
-    curl $SERVER;
+    echo $SERVER/$KEY;
+    curl $SERVER/$KEY;
 }
 
 main() {
