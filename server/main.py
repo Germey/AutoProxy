@@ -43,7 +43,7 @@ def record(key):
         return 'Invalid Key'
 
 
-@app.route('/proxy', methods=['GET'])
+@app.route('/', methods=['GET'])
 @requires_auth
 def proxy():
     with open('ip', 'r') as f:

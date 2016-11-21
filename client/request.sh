@@ -7,7 +7,7 @@ fi
 
 KEY=""
 SERVER=""
-
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 load_config() {
 	cfg=$1;
@@ -19,7 +19,7 @@ load_config() {
 }
 
 change_proxy() {
-    . ./pppoe.sh
+    . $DIR/pppoe.sh
 }
 
 send_request() {
