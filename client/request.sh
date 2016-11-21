@@ -19,7 +19,7 @@ load_config() {
 }
 
 change_proxy() {
-    . $DIR/pppoe.sh
+    $DIR/pppoe.sh
 }
 
 send_request() {
