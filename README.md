@@ -22,7 +22,7 @@ server文件夹是服务器端运行，利用Python的Flask搭建服务器，然
 * crontab 定时任务命令示例。
 * pppoe.sh 拨号脚本，主要是实现重新拨号的几个命令。
 * request.sh 请求服务器的脚本，主要是实现拨号后请求服务器的操作。
-* reqeust.conf 配置文件。
+* request.conf 配置文件。
 
 ## 使用
 
@@ -99,6 +99,22 @@ git clone https://github.com/Germey/AutoProxy.git
 修改pppoe.sh文件
 
 这里面写上重新拨号的几条命令，记得在前两行配置一下环境变量，配置上拨号命令所在的目录，以防出现脚本无法运行的问题。
+
+比如我的是
+
+```
+pppoe-stop
+pppoe-start
+```
+
+当然有的主机可能是
+
+```
+adsl-stop
+adsl-start
+```
+
+不同主机拨号命令不一样，在这里把停止和启动拨号的命令写上。具体请看服务商提供的拨号命令。
 
 ### 运行
 
