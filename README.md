@@ -36,21 +36,50 @@ server文件夹是服务器端运行，利用Python的Flask搭建服务器，然
 git clone https://github.com/Germey/AutoProxy.git
 ```
 
+#### 安装Python
+
+安装Python版本2.7。
+
+###### Ubuntu、Debian、Deepin
+
+```
+sudo apt-get install python2.7 python-pip
+```
+
+##### CentOS、RedHat
+
+```
+sudo yum install python27 python-pip
+```
+
+#### 安装Python包
+
+```
+pip install flask werkzeug itsdangerous click
+```
+
 #### 修改配置
 
 修改config.py文件
 
-* KEY 是客户端请求服务器时的凭证，在client的reqeust.conf也有相同的配置，二者保持一致即可。
+* KEY 是客户端请求服务器时的凭证，在client的request.conf也有相同的配置，二者保持一致即可。
+
 * NEED_AUTH 在获取当前保存的IP（即代理的IP）的时候，为防止自己的主机代理被滥用，在获取IP的时候，需要加权限验证。
+
 * AUTH_USER和AUTH_PASSWORD分别是认证用户名密码。
+
 * PORT默认端口，返回保存的结果中会自动添加这个端口，组成一个IP:PORT的代理形式。
+
+  注意默认是8888，你需要用Squid或者TinyProxy配置下代理，端口是8888，这里端口8888即默认的拨号VPS的代理端口，这里配置下保证输出结果自动拼接端口。
 
 ### 运行
 
 ```
 cd server
-nohup python main.py
+nohup python main.py &
 ```
+
+这样就会在5000端口启动服务，如果想修改端口，可以手动修改main.py里面的端口5000为其他。
 
 ### ADSL客户机
 
@@ -62,10 +91,10 @@ git clone https://github.com/Germey/AutoProxy.git
 
 #### 修改配置
 
-修改reqeust.conf文件
+修改request.conf文件
 
 * KEY 是客户端请求服务器时的凭证，在server的config.py也有相同的配置，二者保持一致即可。
-* SERVER是服务器项目运行后的地址，一般为http://<服务器IP>/record。如`http://120.27.14.24/record`。
+* SERVER是服务器项目运行后的地址，一般为http://<服务器IP>:<服务端口>/record。如`http://120.27.14.24:5000/record`。
 
 修改pppoe.sh文件
 
